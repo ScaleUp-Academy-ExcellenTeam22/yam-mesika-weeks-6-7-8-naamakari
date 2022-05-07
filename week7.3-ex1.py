@@ -38,7 +38,7 @@ class Message:
         self.is_read = False
         self.message_id = 1
 
-    def add_message_id(self, message_id: int):
+    def change_message_id(self, message_id: int):
         """
         Change the message id according the sending messages.
         :param message_id: The number to change to.
@@ -180,11 +180,11 @@ def show_example():
     post_office = PostOffice(users)
     message1 = Message('Levi', 'Cohen', 'Hii', 'Hello')
     message_id = post_office.send_message(message=message1)
-    message1.add_message_id(message_id)
+    message1.change_message_id(message_id)
     print(f"Successfuly sent message number {message_id}.")
     message2 = Message('Levi', 'Hertzel', 'Hanny', 'Benny')
     message_id = post_office.send_message(message=message2)
-    message1.add_message_id(message_id)
+    message1.change_message_id(message_id)
     print(f"Successfuly sent message number {message_id}.")
     print(post_office.boxes['Hertzel'][0].__str__())
     print(post_office.read_inbox('Mr. Peanutbutter'))
