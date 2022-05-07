@@ -96,12 +96,13 @@ class PostOffice:
         """
         if messages_number == -1:
             messages_number = len(self.boxes[username])
-        massages = [self.boxes[username][number] for number in range(messages_number) if
+        messages = [self.boxes[username][number] for number in range(messages_number) if
                     self.boxes[username][number]['unread']]
+
         for number in range(messages_number):
             if self.boxes[username][number]['unread']:
                 self.boxes[username][number]['unread'] = False
-        return massages
+        return messages
 
     def search_inbox(self, username: str, string_to_search: str) -> List:
         """Return the messages that contain the received string in the message box of the received username.
