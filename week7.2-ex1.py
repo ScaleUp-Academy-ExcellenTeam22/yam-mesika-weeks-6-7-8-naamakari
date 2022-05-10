@@ -98,10 +98,8 @@ class PostOffice:
             messages_number = len(self.boxes[username])
         messages = [self.boxes[username][number] for number in range(messages_number) if
                     self.boxes[username][number]['unread']]
-
-        for number in range(messages_number):
-            if self.boxes[username][number]['unread']:
-                self.boxes[username][number]['unread'] = False
+        for message in messages:
+            message['unread'] = False
         return messages
 
     def search_inbox(self, username: str, string_to_search: str) -> List:
